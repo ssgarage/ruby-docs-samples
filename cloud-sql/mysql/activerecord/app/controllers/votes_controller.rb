@@ -2,6 +2,7 @@ class VotesController < ApplicationController
   before_action :set_vote, only: [:show, :edit, :update, :destroy]
 
   def index
+    p Vote.all
     @tab_count = Vote.tab_count
     @space_count = Vote.space_count
     @recent_votes = Vote.last 5

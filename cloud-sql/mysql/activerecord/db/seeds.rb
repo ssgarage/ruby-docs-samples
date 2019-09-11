@@ -6,5 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-5.times { Vote.new candidate: "TABS" }
-5.times { Vote.new candidate: "SPACES" }
+Vote.delete_all
+
+10.times { |n| Vote.create candidate: ["TABS", "SPACES"][n % 2] }
