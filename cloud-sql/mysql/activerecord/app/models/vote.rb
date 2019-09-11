@@ -1,6 +1,12 @@
 class Vote < ApplicationRecord
   validates :candidate, inclusion: { in: ["TABS", "SPACES"] }
 
+  def date_cast
+  end
+
+  def time_case
+  end
+
   def self.tab_count
     select(:candidate).where(:candidate == "TABS").count
   end
