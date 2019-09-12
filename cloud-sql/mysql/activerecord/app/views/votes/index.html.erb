@@ -64,7 +64,7 @@ limitations under the License.
     </ul>
 </div>
 <script>
-    function vote(team) {
+    function vote(candidate) {
         var xhr = new XMLHttpRequest();
         xhr.onreadystatechange = function () {
             if (this.readyState == 4) {
@@ -75,7 +75,7 @@ limitations under the License.
         };
         xhr.open("POST", "/", true);
         xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        xhr.send("team=" + team);
+        xhr.send("candidate=" + candidate);
     }
 
     document.getElementById("voteTabs").addEventListener("click", function () {
