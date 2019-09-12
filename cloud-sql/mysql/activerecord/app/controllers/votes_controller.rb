@@ -11,13 +11,13 @@ class VotesController < ApplicationController
   def create
     puts "vote_params upcoming"
     puts candidate
-    @vote = Vote.new candidate: candidate
+    # @vote = Vote.new candidate: candidate
 
-    if @vote.save
-      render json: "Vote successfully cast for \"#{@vote.candidate}\" at #{@vote.time_cast} PST!"
-    else
-      render json: @vote.errors, status: :unprocessable_entity
-    end
+    # if @vote.save
+    #   render json: "Vote successfully cast for \"#{@vote.candidate}\" at #{@vote.time_cast} PST!"
+    # else
+    #   render json: @vote.errors, status: :unprocessable_entity
+    # end
   end
 
   private
