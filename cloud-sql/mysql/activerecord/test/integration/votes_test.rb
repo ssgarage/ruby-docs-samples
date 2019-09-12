@@ -5,9 +5,12 @@ class VotesTest < ActionDispatch::IntegrationTest
     get "/"
     assert_response :success
 
-    post "/", params: { candidate: "TABS" }, as: :json
-    p @response.params.inspect
+    post "/", params: { candidate: "TABS" }
     assert_response :success
-    assert_select "p", "Title:\n  can create"
+    assert_select "p", "Vote successfully cast for \"TABS\" at #{Vote.last(1).last.time_cast} PST!"
+
+    post "/", params: { candidate: "SPACES" }
+    assert_response :success
+    assert_select "p", "Vote successfully cast for \"SPACES\" at #{Vote.last(1).last.time_cast} PST!"
   end
 end
