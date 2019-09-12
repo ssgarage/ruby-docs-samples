@@ -1,7 +1,12 @@
 require "test_helper"
 
 class VotesTest < ActionDispatch::IntegrationTest
+  setup do
+    load "#{Rails.root}/db/seeds.rb"
+  end
+
   test "can create a new vote" do
+    p ENV["RAILS_ENV"]
     get "/"
     assert_response :success
 

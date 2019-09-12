@@ -39,8 +39,8 @@ production:
   adapter: mysql2
   pool: 5
   timeout: 5000
-  username: "[YOUR_MYSQL_USERNAME]"
-  password: "[YOUR_MYSQL_PASSWORD]"
+  username: <%= ENV["MYSQL_USERNAME"] %>
+  password: <%= ENV["MYSQL_PASSWORD"] %>
   database: "vote_production"
-  socket:   "/cloudsql/[YOUR_INSTANCE_CONNECTION_NAME]"
+  socket:   "/cloudsql/<%= ENV["INSTANCE_CONNECTION_NAME"] %>"
 # [END production]
